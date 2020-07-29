@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "244017106517",
+    "firebase_url": "https://database-2baff.firebaseio.com",
+    "project_id": "database-2baff",
+    "storage_bucket": "database-2baff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244017106517:android:952e565fc0c4cec876cedc",
+        "android_client_info": {
+          "package_name": "com.oyemeet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244017106517-507vt3tghrpo6c9q5j7002sk51vfb4sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzZWSl-rMsN88bqClIlM0RgJn0bOVR87k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244017106517-507vt3tghrpo6c9q5j7002sk51vfb4sk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
