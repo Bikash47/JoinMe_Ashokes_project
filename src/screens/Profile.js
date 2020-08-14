@@ -77,7 +77,7 @@ class Profile extends Component {
               <Icon name="edit" type='font-awesome' size={20} color="white" />
             </View>
 
-            <View style={styles.searchSection}>
+            {/* <View style={styles.searchSection}>
               <Icon name="address" type='entypo'
                 size={20} color="white" />
               <View style={styles.textParentView}>
@@ -85,9 +85,9 @@ class Profile extends Component {
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.city)}</Text>
               </View>
               <Icon name="edit" type='font-awesome' size={20} color="white" />
-            </View>
+            </View> */}
 
-            <View style={styles.searchSection}>
+            {/* <View style={styles.searchSection}>
               <Icon name="location-pin" type='entypo'
                 size={20} color="white" />
               <View style={styles.textParentView}>
@@ -95,9 +95,9 @@ class Profile extends Component {
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.userState)}</Text>
               </View>
               <Icon name="edit" type='font-awesome' size={20} color="white" />
-            </View>
+            </View> */}
 
-            <View style={styles.searchSection}>
+            {/* <View style={styles.searchSection}>
               <Icon name="address" type='entypo'
                 size={20} color="white" />
               <View style={styles.textParentView}>
@@ -105,7 +105,7 @@ class Profile extends Component {
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.pinCode)}</Text>
               </View>
               <Icon name="edit" type='font-awesome' size={20} color="white" />
-            </View>
+            </View> */}
             <TouchableOpacity
               onPress={() => { this.logout() }}
               style={styles.buttonContainer}>

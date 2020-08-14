@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "244017106517",
-    "firebase_url": "https://database-2baff.firebaseio.com",
-    "project_id": "database-2baff",
-    "storage_bucket": "database-2baff.appspot.com"
+    "project_number": "92084048437",
+    "firebase_url": "https://vitrualmeet.firebaseio.com",
+    "project_id": "vitrualmeet",
+    "storage_bucket": "vitrualmeet.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:244017106517:android:952e565fc0c4cec876cedc",
+        "mobilesdk_app_id": "1:92084048437:android:926f4203ffe6ace842d77c",
         "android_client_info": {
           "package_name": "com.oyemeet"
         }
       },
       "oauth_client": [
         {
-          "client_id": "244017106517-507vt3tghrpo6c9q5j7002sk51vfb4sk.apps.googleusercontent.com",
+          "client_id": "92084048437-vk27jr579ebss4aq0rj8cf96c0fholfr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBzZWSl-rMsN88bqClIlM0RgJn0bOVR87k"
+          "current_key": "AIzaSyCpEJ7o1ZAj74YiUElTv22S_5vI0UcQCWg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "244017106517-507vt3tghrpo6c9q5j7002sk51vfb4sk.apps.googleusercontent.com",
+              "client_id": "92084048437-vk27jr579ebss4aq0rj8cf96c0fholfr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -74,9 +74,9 @@ class Register extends Component {
       'password': password,
       'phone': phone,
       'email': email,
-      'city': city,
-      'userState': userState,
-      'pinCode': pinCode,
+      // 'city': city,
+      // 'userState': userState,
+      // 'pinCode': pinCode,
       'imagePath': uri,
       'createdAt': firestore.FieldValue.serverTimestamp()
     };
@@ -134,12 +134,13 @@ class Register extends Component {
 
             <InputBox onChangeText={(text) => { this.setState({ email: text }) }} icon={'envelope-open'} name={'Email Address'} keyboardType={'email-address'} />
 
-            <InputBox onChangeText={(text) => { this.setState({ city: text }) }} icon={'address'} name={'City'} fontType={'entypo'} keyboardType={'default'} />
+            {/* <InputBox onChangeText={(text) => { this.setState({ city: text }) }} icon={'address'} name={'City'} fontType={'entypo'} keyboardType={'default'} />
 
             <InputBox onChangeText={(text) => { this.setState({ userState: text }) }} icon={'location-pin'} name={'State'} fontType={'entypo'} keyboardType={'default'} />
 
             <InputBox onChangeText={(text) => { this.setState({ pinCode: text }) }} icon={'address'} name={'Zip Code'} fontType={'entypo'} keyboardType={'numeric'} />
-            <Button
+            */}
+            <Button 
               buttonStyle={styles.button}
               ComponentStyle={{ top: 10 }}
               title="Register"
