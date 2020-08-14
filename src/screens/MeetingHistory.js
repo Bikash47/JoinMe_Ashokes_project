@@ -55,7 +55,7 @@ class MeetingHistory extends Component {
     const { getUserProfile, userImagePath } = this.props;
 
     return (
-      <ImageBackground source={require('@assets/bg-screen.png')} style={styles.background}>
+      <View  style={styles.background}>
         <StatusBar translucent={true} backgroundColor={'transparent'} />
 
         <Header {...this.props} />
@@ -93,13 +93,13 @@ class MeetingHistory extends Component {
                       onPress={() => { this.props.navigation.navigate("Calling", { meetingID: item.meetingID }) }}
                       style={styles.callButton}>
                       <Icon name="phone-call" type='feather'
-                        size={30} color="green" />
+                        size={30} color="#8b54ff" />
                     </TouchableOpacity>
                     <TouchableOpacity
                       onPress={() => { this.props.navigation.navigate("Calling", { meetingID: item.meetingID }) }}
                       style={styles.callButton}>
                       <Icon name="video" type='feather'
-                        size={30} color="white" />
+                        size={30} color="#8b54ff" />
                     </TouchableOpacity>
                   </View>}
                 keyExtractor={item => item.id}
@@ -108,7 +108,7 @@ class MeetingHistory extends Component {
           </ScrollView>
         </View>
         {this.state.loading && <Loader />}
-      </ImageBackground>
+      </View>
     );
   }
 }
@@ -144,13 +144,13 @@ const styles = StyleSheet.create({
     padding: 10
   },
   infoText: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 10,
     textAlign: 'center',
 
   },
   recordText: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 20,
     textAlign: 'center',
     alignSelf: 'center'
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderBottomColor: 'white',
+    borderBottomColor: '#8b54ff',
     borderBottomWidth: 1,
     height: 70,
     width: '100%',

@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#fff',
-        borderColor: 'blue',
+        borderColor: '#8b54ff',
         borderRadius: 5
         , borderWidth: 2
     },
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     buttonStyle: {
         width: 300,
         height: 50,
-        backgroundColor: 'blue',
+        backgroundColor: '#8b54ff',
         borderRadius: 5,
     }
 })

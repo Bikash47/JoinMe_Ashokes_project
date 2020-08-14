@@ -28,7 +28,6 @@ class Login extends Component {
       .catch(error => {
         this.setState({ loading: false });
         ToastAlert.show('Invalid email/password !', ToastAlert.LONG);
-
       });
   }
 
@@ -60,7 +59,7 @@ class Login extends Component {
 
   render() {
     return (
-      <ImageBackground source={require('@assets/bg-screen.png')} style={styles.background}>
+      <View  style={styles.background}>
         <StatusBar translucent={true} backgroundColor={'transparent'} />
         <Header {...this.props} />
 
@@ -75,25 +74,43 @@ class Login extends Component {
           <Text style={styles.text}>Login</Text>
 
           <View style={styles.inputMainView}>
-            <InputBox onChangeText={(text) => { this.setState({ userID: text }) }} icon={'user'} name={'PhoneNumber/Email Id'} />
-            <InputBox onChangeText={(text) => { this.setState({ password: text }) }} icon={'lock'} name={'Password'} />
+          <Text style={styles.texts}>Email Id</Text>
+            <InputBox onChangeText={(text) => { this.setState({ userID: text }) }}  name={'PhoneNumber/Email Id'} />
+            <Text style={styles.texts}>Password</Text>
+            <InputBox onChangeText={(text) => { this.setState({ password: text }) }}  name={'Password'} />
           </View>
 
-          <Button
-            buttonStyle={styles.button}
-            title="Login"
+          <TouchableOpacity
+            style={[styles.button,this.state.userID == '' || this.state.password == ''?{backgroundColor:"#ccc"}:{backgroundColor:"#8b54ff"}]}
             onPress={() => this.login()}
             disabled={this.state.userID == '' || this.state.password == ''}
-          />
+          >
+            <Text style={styles.textlog}>Login</Text>
+            </TouchableOpacity>
           <View style={styles.lowerview}>
-            <Text style={{ color: 'white', fontSize: 15 }}>Don’t have an account?</Text>
+            <Text style={{ color: 'black', fontSize: 15 }}>Don’t have an account?</Text>
             <TouchableOpacity style={styles.registerBtn} onPress={() => this.props.navigation.navigate("Register")}>
-              <Text style={styles.register}> Register</Text>
+              <Text style={styles.register}> click here.</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.lowerviews}>
+            <Text style={{ color: 'black', fontSize: 10 }}>or continue with social media</Text>
+          </View>
+          <View style={styles.lowerviews}>
+          <Image
+              style={styles.images}
+              resizeMode='contain'
+              source={require('@assets/google.png')} >
+            </Image>
+            <Image
+              style={styles.images}
+              resizeMode='contain'
+              source={require('@assets/facebook.png')} >
+            </Image>
+            </View>
         </View>
         {this.state.loading && <Loader />}
-      </ImageBackground>
+      </View>
     );
   }
 }
@@ -105,18 +122,29 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
   },
+  images: {
+    height: 50,
+    width: 50,
+    margin:20
+  },
   register: {
-    color: '#5104e0', fontSize: 20, fontWeight: 'bold'
+    color: '#5104e0', fontSize: 15, fontWeight: 'bold'
   },
   imageView: {
     height: 200,
-    width: 250,
+    width: 200,
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center'
   },
   text: {
-    color: 'white', fontSize: 25, fontWeight: 'bold'
+    color: '#8b54ff', fontSize: 35, fontWeight: 'bold'
+  },
+  texts: {
+    color: '#000', fontSize: 15, fontWeight: 'bold'
+  },
+  textlog: {
+    color: '#fff', fontSize: 25, fontWeight: 'bold'
   },
   background: {
     flex: 1,
@@ -130,22 +158,33 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
-    justifyContent: 'space-around'
+    justifyContent: 'center'
   },
   lowerview: {
-    width: 300,
+    width: '90%',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     height: 50,
+    marginTop:10,
+    backgroundColor: 'transparent'
+  },
+  lowerviews: {
+    width: '90%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
     backgroundColor: 'transparent'
   },
   button: {
-    width: 100,
+    width: "90%",
     height: 40,
-    backgroundColor: '#5104e0',
+    backgroundColor: '#8b54ff',
     borderRadius: 5,
+    alignItems: 'center',
+    marginTop:15,
+     justifyContent: 'center'
   },
   inputMainView: { height: responsiveHeight(20), justifyContent: 'space-around', paddingHorizontal: responsiveWidth(1) },
-  registerBtn:{ alignItems: 'center', justifyContent: 'center' }
+  registerBtn:{ alignItems: 'center', justifyContent: 'center',color: '#8b54ff', }
 })

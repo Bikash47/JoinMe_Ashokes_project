@@ -155,7 +155,7 @@ class Home extends Component {
     const { getUserProfile, userImagePath, todayMeeting, nextMeeting } = this.props;
     return (
       <SafeAreaView style={styles.container}>
-        <ImageBackground source={require('@assets/bg-screen.png')} style={styles.background}>
+        <ImageBackground  style={styles.background}>
           <StatusBar translucent={true} backgroundColor={'transparent'} />
 
           {getUserProfile != null ? <View style={styles.topView}>
@@ -208,7 +208,7 @@ class Home extends Component {
                     source={require('@assets/meeting.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Schedule Meeting</Text>
+                <Text style={styles.optionsText}>Arrange Meeting</Text>
               </View>
               <View style={styles.centerView}>
                 <TouchableOpacity onPress={() => {
@@ -247,7 +247,7 @@ class Home extends Component {
                     source={require('@assets/conference.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Meeting History</Text>
+                <Text style={styles.optionsText}>Meeting Archives</Text>
               </View>
             </View>
             <View style={styles.row}>
@@ -262,7 +262,7 @@ class Home extends Component {
                     source={require('@assets/add.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Register</Text>
+                <Text style={styles.optionsText}>Signup</Text>
               </View>
               <View style={styles.centerView}>
                 <TouchableOpacity onPress={() => {
@@ -275,7 +275,7 @@ class Home extends Component {
                     source={require('@assets/user1.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Login</Text>
+                <Text style={styles.optionsText}>Sign On</Text>
               </View>
               <View style={styles.centerView}>
                 <TouchableOpacity onPress={() => {
@@ -301,7 +301,7 @@ class Home extends Component {
                     source={require('@assets/calendar.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Social</Text>
+                <Text style={styles.optionsText}>Planner</Text>
               </View>
             </View>
             <View style={styles.meetingView}>
@@ -378,7 +378,7 @@ export default connect(mapStateToProps, { fetchScheduleMeeting, deleteScheduleMe
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6511e1'
+    backgroundColor: '#fff'
   },
   imageView: {
     height: 80,
@@ -391,29 +391,29 @@ const styles = StyleSheet.create({
     left: 20
   },
   meetingDetails: {
-    color: 'grey',
+    color: '#fff',
     fontSize: 15,
     textAlign: 'left',
     width: '95%'
 
   },
   meetingDetails2: {
-    color: '#373737',
+    color: '#fff',
     fontSize: 15,
     textAlign: 'left',
     width: '95%'
   },
   meetingDetailView: {
-    backgroundColor: 'white',
+    backgroundColor: '#8b54ff',
     width: '70%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center'
   },
   meetingListContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#8b54ff',
     height: 150,
-    width: 300,
+    width: 360,
     borderRadius: 6,
     padding: 10,
     marginLeft: 10
@@ -425,8 +425,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   optionImage: {
-    height: '60%',
-    width: '60%'
+    height: '70%',
+    width: '70%'
   },
   row: {
     flexDirection: 'row',
@@ -462,12 +462,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 1
   },
   title1: {
-    color: 'white',
+    color: '#cacaca',
     fontSize: 19,
     fontWeight: 'bold'
   },
   dash1: {
-    color: 'white',
+    color: 'black',
     fontSize: 25,
     fontWeight: 'bold'
   },
@@ -559,10 +559,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    elevation:10,
+    
+    
   },
   optionsText: {
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     fontSize: 15,
     width: responsiveHeight(11)
@@ -576,13 +579,13 @@ const styles = StyleSheet.create({
   },
   centerView: { alignItems: 'center', },
   buttonView: {
-    backgroundColor: 'white',
+    backgroundColor: '#8b54ff',
     width: '30%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'space-around'
   },
-  meetingText: { color: 'grey', fontSize: 15, textAlign: 'left', width: '100%' },
+  meetingText: { color: '#fff', fontSize: 15, textAlign: 'left', width: '100%' },
   profileOptionImage: { height: 30, width: 30 },
   logoImageView: { height: '100%', width: 120 }
 })

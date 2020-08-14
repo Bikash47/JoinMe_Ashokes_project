@@ -1,5 +1,5 @@
 import React, { Component, } from "react";
-import { StyleSheet, ScrollView, View, TextInput, ImageBackground, Text, Image } from 'react-native';
+import { StyleSheet, ScrollView, View, TextInput, StatusBar, Text, Image } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { fetchScheduleMeeting } from '@action';
@@ -66,7 +66,9 @@ class ScheduleMeeting extends Component {
 
   render() {
     return (
-      <ImageBackground source={require('@assets/bg-screen.png')} style={styles.container}>
+      <View  style={styles.container}>
+                <StatusBar translucent={true} backgroundColor={'transparent'} />
+
         <Header {...this.props} />
         <View style={styles.contentContainer}>
           <ScrollView contentContainerStyle={styles.scrollView}>
@@ -79,7 +81,6 @@ class ScheduleMeeting extends Component {
             </View>
             <Text style={styles.headingText}>Schedule Your Meeting</Text>
             <View style={styles.searchSection}>
-              <Icon style={styles.searchIcon} name="clipboard-outline" type='material-community' size={25} color="#595959" />
               <TextInput
                 style={styles.input}
                 placeholder="Meeting ID"
@@ -89,7 +90,6 @@ class ScheduleMeeting extends Component {
               <View style={styles.searchIcon} name="microphone" type='font-awesome' size={25} color="#595959" />
             </View>
             <View style={styles.searchSection}>
-              <Icon style={styles.searchIcon} name="flag" type='font-awesome' size={25} color="#595959" />
               <TextInput
                 style={styles.input}
                 placeholder="Meeting Subject"
@@ -99,7 +99,6 @@ class ScheduleMeeting extends Component {
               <View style={styles.searchIcon} name="microphone" type='font-awesome' size={30} color="#595959" />
             </View>
             <View style={styles.searchSection}>
-              <Icon style={styles.searchIcon} name="user" type='font-awesome' size={25} color="#595959" />
               <TextInput
                 style={styles.input}
                 placeholder="Meeting Participents"
@@ -109,7 +108,6 @@ class ScheduleMeeting extends Component {
               <View style={styles.searchIcon} name="microphone" type='font-awesome' size={25} color="#595959" />
             </View>
             <View style={styles.searchSection}>
-              <Icon style={styles.searchIcon} name="id-card-o" type='font-awesome' size={20} color="#595959" />
               <TextInput
                 style={styles.input}
                 placeholder="Time"
@@ -120,6 +118,7 @@ class ScheduleMeeting extends Component {
             </View>
             <View style={styles.searchSection}>
               <DatePicker
+              showIcon={false}
                 style={styles.datePicker}
                 date={this.state.date}
                 mode="date"
@@ -129,15 +128,13 @@ class ScheduleMeeting extends Component {
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 customStyles={{
-                  dateIcon: styles.dateIcon,
-                  dateInput: { marginLeft: 36 }
+                  dateInput:{borderWidth: 0}
                 }}
                 onDateChange={(date) => { this.setState({ date: date }) }}
               />
-              <View style={styles.searchIcon} name="microphone" type='font-awesome' size={30} color="#595959" />
+
             </View>
             <View style={styles.searchSection}>
-              <Icon style={styles.searchIcon} name="clock" type='entypo' size={25} color="#595959" />
               <TextInput
                 style={styles.input}
                 placeholder="Duration"
@@ -155,7 +152,7 @@ class ScheduleMeeting extends Component {
           />
         </View>
         {this.state.loading && <Loader />}
-      </ImageBackground>
+      </View>
     );
   }
 }
@@ -169,8 +166,8 @@ export default connect(mapStateToProps, { fetchScheduleMeeting })(ScheduleMeetin
 const styles = StyleSheet.create({
 
   image: {
-    height: '100%',
-    width: '100%',
+    height: '80%',
+    width: '80%',
   },
   searchSection: {
     height: 40,
@@ -180,7 +177,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     borderColor: '#595959',
-    borderRadius: 30
+    borderRadius: 10,
+    padding: 10
   },
   searchIcon: {
     padding: 10,
@@ -188,7 +186,7 @@ const styles = StyleSheet.create({
   button: {
     width: 100,
     height: 40,
-    backgroundColor: '#5104e0',
+    backgroundColor: '#8b54ff',
     borderRadius: 5,
   },
   input: {
@@ -206,7 +204,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   contentContainer: {
-    height: '85%',
+    height: '80%',
     width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
@@ -228,16 +226,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   headingText: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   datePicker: {
     height: 40,
-    width: '90%',
-    borderColor: 'white',
-    borderWidth: 0
+    width: '122%',
+    
   },
   dateIcon: {
     position: 'absolute',

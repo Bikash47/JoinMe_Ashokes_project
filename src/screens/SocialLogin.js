@@ -6,7 +6,7 @@ class SocialLogin extends Component {
 
   render() {
     return (
-      <ImageBackground source={require('@assets/bg-screen.png')} style={styles.container}>
+      <View  style={styles.container}>
         <StatusBar translucent={true} backgroundColor={'transparent'} />
         <Header {...this.props} />
         <View style={styles.contentContainer}>
@@ -71,7 +71,7 @@ class SocialLogin extends Component {
             </View>
           </View>
         </View>
-      </ImageBackground>
+      </View>
     );
   }
 }
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   options: {
     height: responsiveHeight(10),
     width: responsiveHeight(10),
-    backgroundColor: 'white',
+    backgroundColor: '#8b54ff',
     borderRadius: responsiveHeight(5),
     alignItems: 'center',
     justifyContent: 'center'
@@ -115,12 +115,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   headingText: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 25,
     fontWeight: 'bold'
   },
   headingSubText: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 17,
   },
   platformContainer: {

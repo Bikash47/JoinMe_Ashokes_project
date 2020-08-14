@@ -25,7 +25,7 @@ class Profile extends Component {
     }
 
     return (
-      <ImageBackground source={require('../assets/profile-bg.png')} style={styles.container}>
+      <View  style={styles.container}>
         <View style={styles.userInfoContainer}>
           <View style={styles.imageContainer}>
             <Image
@@ -50,61 +50,61 @@ class Profile extends Component {
           <Text style={styles.accountInfoHead}>Account Info</Text>
           <View style={styles.detailsContainer}>
             <View style={styles.searchSection}>
-              <Icon name="user" type='font-awesome' size={20} color="white" />
+              <Icon name="user" type='font-awesome' size={20} color="#8b54ff" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Full Name</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.userName)}</Text>
               </View>
               <Icon name="edit" type='font-awesome'
-                size={20} color="white" />
+                size={20} color="#8b54ff" />
             </View>
             <View style={styles.searchSection}>
-              <Icon name="mobile" type='font-awesome'  size={20} color="white" />
+              <Icon name="mobile" type='font-awesome'  size={20} color="#8b54ff" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Phone</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.phone)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="white" />
+              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
             </View>
 
             <View style={styles.searchSection}>
               <Icon name="envelope-open" type='font-awesome'
-                size={15} color="white" />
+                size={15} color="#8b54ff" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Email Address</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.email)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="white" />
+              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
             </View>
 
             <View style={styles.searchSection}>
               <Icon name="address" type='entypo'
-                size={20} color="white" />
+                size={20} color="#8b54ff" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>City</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.city)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="white" />
+              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
             </View>
 
             <View style={styles.searchSection}>
               <Icon name="location-pin" type='entypo'
-                size={20} color="white" />
+                size={20} color="#8b54ff" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>State</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.userState)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="white" />
+              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
             </View>
 
             <View style={styles.searchSection}>
               <Icon name="address" type='entypo'
-                size={20} color="white" />
+                size={20} color="#8b54ff" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Zip Code</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.pinCode)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="white" />
+              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
             </View>
             <TouchableOpacity
               onPress={() => { this.logout() }}
@@ -113,7 +113,7 @@ class Profile extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </ImageBackground>
+      </View>
     );
   }
 }
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'transparent',
-    borderColor: 'white',
+    borderColor: '#8b54ff',
     borderRadius: 30
   },
   userInfoContainer: {
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     height: responsiveWidth(30),
     width: responsiveWidth(30),
-    backgroundColor: 'grey',
+    backgroundColor: '#8b54ff',
     borderRadius: responsiveWidth(15),
     alignItems: 'center',
     justifyContent: 'center',
@@ -172,14 +172,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     height: responsiveHeight(8),
     width: responsiveWidth(80),
     borderRadius: 30,
     top: responsiveHeight(2)
   },
   navText: {
-    color: 'blue',
+    color: '#8b54ff',
     fontSize: responsiveFontSize(2.5),
     fontWeight: '400',
     right: responsiveWidth(8)
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   accountInfoHead: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 25,
     fontWeight: 'bold',
     width: '100%'
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infoText:{ 
-    color: 'white', 
+    color: '#8b54ff', 
     fontSize: 15, 
     fontWeight: '400' 
   },
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     alignItems: 'center', 
     justifyContent: 'center', 
-    backgroundColor: 'white', 
+    backgroundColor: '#fff', 
     height: responsiveHeight(8), 
     width: responsiveWidth(80), 
     borderRadius: 30, 
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     color: 'blue', 
     fontSize: 20, 
     fontWeight: '400', 
-  },userLoginInfoText1:{ color: 'white', fontSize: 25, fontWeight: 'bold' },
-  userLoginInfoText2:{ color: 'white', fontSize: 17, },
+  },userLoginInfoText1:{ color: '#8b54ff', fontSize: 25, fontWeight: 'bold' },
+  userLoginInfoText2:{ color: '#8b54ff', fontSize: 17, },
   textParentView:{ width: '75%' }
 })

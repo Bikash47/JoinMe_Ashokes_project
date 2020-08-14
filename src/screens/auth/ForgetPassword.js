@@ -38,22 +38,21 @@ class Forget extends Component {
   }
   render() {
     return (
-      <ImageBackground source={require('@assets/bg-screen.png')} style={styles.background}>
+      <View style={styles.background}>
         <Header {...this.props} />
         <View style={styles.container}>
           <View style={styles.imageView}>
             <Image
               style={styles.image}
               resizeMode='contain'
-              source={require('@assets/forget-pass.png')} >
+              source={require('@assets/far.png')} >
             </Image>
           </View>
           <Text style={styles.title}>
             Forget Password
             </Text>
           <View style={styles.searchSection}>
-            <Icon style={styles.searchIcon} name="user" type='font-awesome'
-              size={25} color="#595959" />
+           
             <TextInput
               style={styles.input}
               placeholder="PhoneNumber/Email Id"
@@ -63,12 +62,12 @@ class Forget extends Component {
             <View style={styles.searchIcon} name="microphone" type='font-awesome'
               size={30} color="#595959" />
           </View>
-          <Button
-            buttonStyle={styles.button}
-            title="Submit"
-            onPress={() => this.forget()}
-            disabled={this.state.email == '' || this.state.pass == ''}
-          />
+        
+           <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.forget()}>
+            <Text style={styles.textlog}>Submit</Text>
+          </TouchableOpacity>
           <View style={styles.lowerView}>
             <Text style={styles.lowerViewText}>Don’t have an account?</Text>
             <TouchableOpacity onPress={() => {
@@ -78,7 +77,7 @@ class Forget extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </ImageBackground>
+      </View>
     );
   }
 }
@@ -86,9 +85,14 @@ export default Forget
 
 const styles = StyleSheet.create({
   title: {
-    color: 'white',
+    color: '#8b54ff',
     fontSize: 25,
     fontWeight: 'bold'
+  },
+  textlog: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   lowerView: {
     width: 300,
@@ -128,34 +132,38 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   searchSection: {
-    height: 45,
+    height: 50,
     width: '93%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#ccc',
     borderColor: '#595959',
-    borderRadius: 30
+    borderRadius: 10,
+paddingLeft:10
   },
   searchIcon: {
     padding: 10,
   },
   button: {
-    width: 100,
+    width: '90%',
     height: 40,
-    backgroundColor: '#5104e0',
+    backgroundColor: '#8b54ff',
     borderRadius: 5,
+    alignItems: 'center',
+    marginTop: 15,
+    justifyContent: 'center',
 
   },
   input: {
-    width: '70%',
+    width: '90%',
     margin: 0,
     padding: 0,
     height: '100%',
     textAlign: 'left',
     fontSize: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#ccc',
     color: '#959595',
   },
-  lowerViewText: { color: 'white', fontSize: 15 }
+  lowerViewText: { color: 'black', fontSize: 15 }
 })
