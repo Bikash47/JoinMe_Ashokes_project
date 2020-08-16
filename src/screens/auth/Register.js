@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight
   },
   ScrollView: {
-    height: '100%',
+    height: '70%',
     width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
