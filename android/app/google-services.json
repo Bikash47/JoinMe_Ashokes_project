@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "639811358968",
-    "firebase_url": "https://face2face-8fb30.firebaseio.com",
-    "project_id": "face2face-8fb30",
-    "storage_bucket": "face2face-8fb30.appspot.com"
+    "project_number": "686326433573",
+    "firebase_url": "https://convo-f5240.firebaseio.com",
+    "project_id": "convo-f5240",
+    "storage_bucket": "convo-f5240.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:639811358968:android:2938b00adc3394de826b0d",
+        "mobilesdk_app_id": "1:686326433573:android:15442f5e906109dde9fccc",
         "android_client_info": {
-          "package_name": "com.oyemeet"
+          "package_name": "com.convo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "639811358968-l00vgrlkj7lk1tc4k4mg0g2qhdg413of.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.oyemeet",
-            "certificate_hash": "7a82dfd6d051a28f305e1091f48eed7a20c8b1d6"
-          }
-        },
-        {
-          "client_id": "639811358968-2cb9u36dtpa8vti0or5knik1vp9l3s9u.apps.googleusercontent.com",
+          "client_id": "686326433573-08n8vmglcbap9mbgh6rud2q74hcinteq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCc8o19CMbXgQP55Fm4cA5hn0Jo48jSAFI"
+          "current_key": "AIzaSyDJUJuYHlkCeH7pmno4M6aKjfxKdRVt3qE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "639811358968-2cb9u36dtpa8vti0or5knik1vp9l3s9u.apps.googleusercontent.com",
+              "client_id": "686326433573-08n8vmglcbap9mbgh6rud2q74hcinteq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,4 +1,4 @@
-package com.oyemeet;
+package com.convo;
 
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen; // here
