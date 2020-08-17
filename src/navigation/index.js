@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import Home from "@screens/Home";
+import SplashComponent from "@screens/SplashComponent"
 import modules from "@screens";
 import { Login, Register, ForgetPassword } from "@auth";
 import Profile from '@screens/Profile'
@@ -21,7 +22,8 @@ const Stack = createStackNavigator();
 function Router() {
     return (
         <NavigationContainer  {...AnimationConfigs}>
-            <Stack.Navigator initialRouteName={"modules"} headerMode="none">                
+            <Stack.Navigator initialRouteName={"SplashComponent"} headerMode="none">  
+                <Stack.Screen name="SplashComponent" component={SplashComponent}/>
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Register" component={Register} />

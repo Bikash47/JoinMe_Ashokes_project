@@ -11,7 +11,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-            SplashScreen.show(this);  // here
+            //SplashScreen.show(this);  // here
 
     return "oyeMeet";
   }

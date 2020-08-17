@@ -17,6 +17,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import auth from '@react-native-firebase/auth';
 import {connect} from 'react-redux';
 import {fetchUserData} from '@action';
+import { TextInput } from 'react-native-paper'
 
 const imageOptions = {
   title: 'Select ProfilePic',
@@ -124,7 +125,7 @@ class Register extends Component {
       <View style={styles.background}>
         <StatusBar translucent={true} backgroundColor={'transparent'} />
         {/* <Header {...this.props} /> */}
-
+       
         <View style={styles.container}>
           <View style={styles.topView}>
             <View style={styles.titleView}>
@@ -158,67 +159,97 @@ class Register extends Component {
               {/* <Text style={{ color: 'white', }}>Upload Photo</Text> */}
             </View>
           </View>
+          <ScrollView style={{ height: "100%", width: "100%", marginRight: 5, }}>
+         <View style={{ height: "100%", width: "100%", marginLeft: 10, }}>
 
-          <ScrollView contentContainerStyle={styles.ScrollView}>
-            <Text style={styles.texts}>User Name</Text>
-            <InputBox
+        
+            <TextInput
+             mode='outlined'
               onChangeText={(text) => {
                 this.setState({userName: text});
               }}
-              name={'Enter Full Name'}
+              style={{  height: 50, width: "95%", margin: 5, }}
+              label={'Enter Full Name'}
               keyboardType={'default'}
+              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
             />
-            <Text style={styles.texts}>Password</Text>
-            <InputBox
+            <TextInput
+             mode='outlined'
               onChangeText={(text) => {
                 this.setState({password: text});
               }}
-              name={'Enter YourPassword'}
+              style={{  height: 50, width: "95%", margin: 5,}}
+
+              label={'Enter YourPassword'}
               keyboardType={'visible-password'}
+              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
             />
-            <Text style={styles.texts}>Phone Number</Text>
-            <InputBox
+            <TextInput
+             mode='outlined'
               onChangeText={(text) => {
                 this.setState({phone: text});
               }}
-              name={'Enter Your Phone'}
+              style={{  height: 50, width: "95%",  margin: 5, }}
+
+              label={'Enter Your Phone'}
               keyboardType={'numeric'}
+              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
             />
-            <Text style={styles.texts}>Email Adress</Text>
-            <InputBox
+            <TextInput
+             mode='outlined'
               onChangeText={(text) => {
                 this.setState({email: text});
               }}
-              name={'Enter Your Email Address'}
+              style={{ height: 50, width: "95%", margin: 5, }}
+
+              label={'Enter Your Email Address'}
               keyboardType={'email-address'}
+              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
             />
-            <Text style={styles.texts}>City</Text>
-            <InputBox
+            <TextInput
+             mode='outlined'
               onChangeText={(text) => {
                 this.setState({city: text});
               }}
-              name={'Enter Your City'}
+              style={{ height: 50, width: "95%", margin: 5, }}
+
+              label={'Enter Your City'}
               fontType={'entypo'}
               keyboardType={'default'}
+              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
             />
-            <Text style={styles.texts}>State</Text>
-            <InputBox
+            <TextInput
+             mode='outlined'
               onChangeText={(text) => {
                 this.setState({userState: text});
               }}
-              name={'Enter Your State'}
+              style={{ height: 50, width: "95%",margin: 5, }}
+
+              label={'Enter Your State'}
               fontType={'entypo'}
               keyboardType={'default'}
+              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
             />
-            <Text style={styles.texts}>Zip Code</Text>
-            <InputBox
+            <TextInput
+             mode='outlined'
               onChangeText={(text) => {
                 this.setState({pinCode: text});
               }}
-              name={'Enter Your Zip Code'}
+              style={{ height: 50, width: "95%",  margin: 5, }}
+
+              label={'Enter Your Zip Code'}
               fontType={'entypo'}
               keyboardType={'numeric'}
+              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
             />
+             </View>
           </ScrollView>
           <TouchableOpacity
             style={styles.button}
@@ -233,8 +264,10 @@ class Register extends Component {
               style={styles.registerBtn}
               onPress={() => this.props.navigation.navigate('Login')}>
               <Text style={styles.register}> click here.</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> 
+           
           </View>
+         
           {/* <View style={styles.lowerviews}>
              <Text style={{ color: 'black', fontSize: 10 }}>or continue with social media</Text> 
           </View> */}
@@ -251,7 +284,7 @@ class Register extends Component {
             </Image>
             </View> */}
         </View>
-
+ 
         {this.state.loading && <Loader />}
       </View>
     );
@@ -271,6 +304,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     margin: 10,
+    
   },
   textlog: {
     color: '#fff',
@@ -297,11 +331,10 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
   },
   ScrollView: {
-    height: '100%',
     width: '100%',
     backgroundColor: 'transparent',
     justifyContent: 'space-around',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   login: {
     color: '#5104e0',
@@ -322,7 +355,7 @@ const styles = StyleSheet.create({
   },
   titleView: {
     backgroundColor: 'transparent',
-    height: 100,
+    height: 80,
     alignItems: 'baseline',
     justifyContent: 'flex-end',
   },
@@ -369,11 +402,11 @@ const styles = StyleSheet.create({
 
   button: {
     width: '90%',
-    height: 40,
+    height: 50,
     backgroundColor: '#8b54ff',
     borderRadius: 5,
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: 5,
     justifyContent: 'center',
   },
   lowerViewText: {color: 'white', fontSize: 15},

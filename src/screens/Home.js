@@ -413,10 +413,10 @@ const styles = StyleSheet.create({
   meetingListContainer: {
     backgroundColor: '#8b54ff',
     height: 150,
-    width: 360,
+    width: 300,
     borderRadius: 6,
     padding: 10,
-    marginLeft: 10
+    margin: 20
   },
   meetingInside: {
     flexDirection: 'row',

@@ -1,5 +1,5 @@
 import React, { Component, } from "react";
-import { StyleSheet, ScrollView, View, TextInput, StatusBar, Text, Image } from 'react-native';
+import { StyleSheet, ScrollView, View,  StatusBar, Text, Image } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { fetchScheduleMeeting } from '@action';
@@ -7,6 +7,8 @@ import firestore from '@react-native-firebase/firestore';
 import { Loader, Header } from "@common";
 import AsyncStorage from '@react-native-community/async-storage';
 import DatePicker from 'react-native-datepicker'
+import { TextInput } from 'react-native-paper'
+
 class ScheduleMeeting extends Component {
   constructor(props) {
     super(props);
@@ -82,41 +84,62 @@ class ScheduleMeeting extends Component {
             <Text style={styles.headingText}>Schedule Your Meeting</Text>
             <View style={styles.searchSection}>
               <TextInput
+               mode='outlined'
                 style={styles.input}
-                placeholder="Meeting ID"
+                label="Meeting ID"
                 onChangeText={(text) => this.setState({ meetingID: text })}
                 underlineColorAndroid="transparent"
+                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
               />
-              <View style={styles.searchIcon} name="microphone" type='font-awesome' size={25} color="#595959" />
             </View>
             <View style={styles.searchSection}>
               <TextInput
+               mode='outlined'
                 style={styles.input}
-                placeholder="Meeting Subject"
+                label="Meeting Subject"
                 onChangeText={(text) => this.setState({ subject: text })}
                 underlineColorAndroid="transparent"
+                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
               />
-              <View style={styles.searchIcon} name="microphone" type='font-awesome' size={30} color="#595959" />
             </View>
             <View style={styles.searchSection}>
               <TextInput
+               mode='outlined'
                 style={styles.input}
-                placeholder="Meeting Participents"
+                label="Meeting Participents"
                 onChangeText={(text) => this.setState({ participents: text })}
                 underlineColorAndroid="transparent"
+                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
               />
-              <View style={styles.searchIcon} name="microphone" type='font-awesome' size={25} color="#595959" />
             </View>
             <View style={styles.searchSection}>
               <TextInput
+               mode='outlined'
                 style={styles.input}
-                placeholder="Time"
+                label="Time"
                 onChangeText={(text) => this.setState({ time: text })}
                 underlineColorAndroid="transparent"
+                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
               />
-              <View style={styles.searchIcon} name="microphone" type='font-awesome' size={30} color="#595959" />
+              
             </View>
             <View style={styles.searchSection}>
+              <TextInput
+               mode='outlined'
+                style={styles.input}
+                label="Duration"
+                onChangeText={(text) => this.setState({ duration: text })}
+                underlineColorAndroid="transparent"
+                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+
+              />
+            
+            </View>
+            <View style={styles.searchSections}>
               <DatePicker
               showIcon={false}
                 style={styles.datePicker}
@@ -128,21 +151,13 @@ class ScheduleMeeting extends Component {
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 customStyles={{
-                  dateInput:{borderWidth: 0}
+                  dateInput:{borderWidth: 1,borderColor:'#5b19ea',height: 50,color: '#8b54ff',}, 
                 }}
                 onDateChange={(date) => { this.setState({ date: date }) }}
               />
 
             </View>
-            <View style={styles.searchSection}>
-              <TextInput
-                style={styles.input}
-                placeholder="Duration"
-                onChangeText={(text) => this.setState({ duration: text })}
-                underlineColorAndroid="transparent"
-              />
-              <View style={styles.searchIcon} name="microphone" type='font-awesome' size={30} color="#595959" />
-            </View>
+          
           </ScrollView>
           <Button
             buttonStyle={styles.button}
@@ -170,34 +185,33 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   searchSection: {
-    height: 40,
-    width: '93%',
+    height: 50,
+    width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderColor: '#595959',
-    borderRadius: 10,
-    padding: 10
+   
+ 
+  
+  },
+  searchSections: {
+    height: 50,
+    width: '100%',
+    flexDirection: 'row',
+   
   },
   searchIcon: {
     padding: 10,
   },
   button: {
-    width: 100,
-    height: 40,
+    width: 350,
+    height: 45,
     backgroundColor: '#8b54ff',
     borderRadius: 5,
+    marginTop:10
   },
   input: {
-    width: '70%',
-    margin: 0,
-    padding: 0,
-    height: '100%',
-    textAlign: 'left',
-    fontSize: 20,
-    backgroundColor: '#fff',
-    color: '#959595'
+    height: 50, width: "95%", margin: 5,
   },
   container: {
     flex: 1,
@@ -232,9 +246,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   datePicker: {
-    height: 40,
-    width: '122%',
-    
+    height: 50,
+    width: '95%',
+   
   },
   dateIcon: {
     position: 'absolute',
