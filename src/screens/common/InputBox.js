@@ -24,14 +24,14 @@ export default class InputBox extends React.Component {
 
 const styles = StyleSheet.create({
     searchSection: {
-        height: 40,
-        width: responsiveWidth(85),
+        height: 50,
+        width: responsiveWidth(90),
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#f5fafe',
         borderColor: '#595959',
-        borderRadius: 30,
+        borderRadius: 5,
         overflow: 'hidden'
     },
     searchIcon: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         height: '100%',
         textAlign: 'left',
         fontSize: 20,
-        backgroundColor: '#fff',
+        backgroundColor: '#f5fafe',
         color: '#959595'
     },
 });
