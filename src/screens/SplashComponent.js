@@ -42,6 +42,8 @@ class SplashComponent extends Component {
                             position:'absolute',
                             marginTop:60
                         }} resizeMode='cover' />
+
+
                         
                          <Text style={styles.headingSubText}>Keep the conversation going..........</Text>
 
