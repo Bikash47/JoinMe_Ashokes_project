@@ -185,7 +185,7 @@ class Home extends Component {
                 style={styles.profileClick}
               >
                 <Icon name="user" type='font-awesome'
-                  size={22} color="#595959" />
+                  size={32} color='#5b19ea' />
               </TouchableHighlight>
             </View>
           </View> : <View style={styles.logoView}>
@@ -462,7 +462,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 1
   },
   title1: {
-    color: '#cacaca',
+    color: '#5b19ea',
     fontSize: 19,
     fontWeight: 'bold'
   },
@@ -472,7 +472,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   dash2: {
-    color: '#cacaca',
+    color: '#5b19ea',
     fontSize: 25,
     fontWeight: 'bold'
   },
@@ -482,7 +482,7 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
   title2: {
-    color: '#cacaca',
+    color: '#5b19ea',
     fontSize: 19,
     fontWeight: 'bold'
   },
@@ -501,7 +501,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   city: {
-    color: 'grey',
+    color: '#5b19ea',
     fontSize: 17,
     fontWeight: 'bold'
   },
@@ -531,7 +531,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   name: {
-    color: 'white',
+    color: '#5b19ea',
     fontSize: 17,
     fontWeight: 'bold'
   },
@@ -586,6 +586,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   meetingText: { color: '#fff', fontSize: 15, textAlign: 'left', width: '100%' },
-  profileOptionImage: { height: 30, width: 30 },
-  logoImageView: { height: '100%', width: 120 }
+  profileOptionImage: { height: 30, width: 30,tintColor:'#5b19ea' },
+  logoImageView: { height: '100%', width: 120,tintColor:'#5b19ea' }
 })

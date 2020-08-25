@@ -263,7 +263,7 @@ class Register extends Component {
             <TouchableOpacity
               style={styles.registerBtn}
               onPress={() => this.props.navigation.navigate('Login')}>
-              <Text style={styles.register}> click here.</Text>
+              <Text style={{color:'#5b19ea'}}> click here.</Text>
             </TouchableOpacity> 
            
           </View>

@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={() => { this.props.navigation.goBack() }} style={styles.iconStyle}>
-          <Icon name="arrow-left" type='material-community' size={30} color="white" />
+          <Icon name="arrow-left" type='material-community' size={30} color='#5b19ea' />
         </TouchableOpacity>
         <Image
           style={styles.image}

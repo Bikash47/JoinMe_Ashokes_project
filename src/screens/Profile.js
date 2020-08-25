@@ -43,7 +43,7 @@ class Profile extends Component {
           onPress={() => this.props.navigation.navigate("Home")}
           style={styles.navController}
         >
-          <Icon name="arrow-left-thick" type='material-community' size={25} color="blue" />
+          <Icon name="arrow-left-thick" type='material-community' size={25} color="white" />
           <Text style={styles.navText}>Back To Home</Text>
         </TouchableOpacity>
         <View style={styles.accountInfoContainer}>
@@ -55,8 +55,8 @@ class Profile extends Component {
                 <Text style={styles.infoText}>Full Name</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.userName)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome'
-                size={20} color="#8b54ff" />
+              {/* <Icon name="edit" type='font-awesome'
+                size={20} color="#8b54ff" /> */}
             </View>
             <View style={styles.searchSection}>
               <Icon name="mobile" type='font-awesome'  size={20} color="#8b54ff" />
@@ -64,7 +64,7 @@ class Profile extends Component {
                 <Text style={styles.infoText}>Phone</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.phone)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
+              {/* <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" /> */}
             </View>
 
             <View style={styles.searchSection}>
@@ -74,7 +74,7 @@ class Profile extends Component {
                 <Text style={styles.infoText}>Email Address</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.email)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
+              {/* <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" /> */}
             </View>
 
             <View style={styles.searchSection}>
@@ -84,7 +84,7 @@ class Profile extends Component {
                 <Text style={styles.infoText}>City</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.city)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
+              {/* <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" /> */}
             </View>
 
             <View style={styles.searchSection}>
@@ -94,7 +94,7 @@ class Profile extends Component {
                 <Text style={styles.infoText}>State</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.userState)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
+              {/* <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" /> */}
             </View>
 
             <View style={styles.searchSection}>
@@ -104,7 +104,7 @@ class Profile extends Component {
                 <Text style={styles.infoText}>Zip Code</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.pinCode)}</Text>
               </View>
-              <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" />
+              {/* <Icon name="edit" type='font-awesome' size={20} color="#8b54ff" /> */}
             </View>
             <TouchableOpacity
               onPress={() => { this.logout() }}
@@ -172,14 +172,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: '#fff',
-    height: responsiveHeight(8),
-    width: responsiveWidth(80),
+    backgroundColor: '#5b19ea',
+    height: responsiveHeight(6),
+    width: responsiveWidth(90),
     borderRadius: 30,
     top: responsiveHeight(2)
   },
   navText: {
-    color: '#8b54ff',
+    color: '#fff',
     fontSize: responsiveFontSize(2.5),
     fontWeight: '400',
     right: responsiveWidth(8)
@@ -212,14 +212,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     alignItems: 'center', 
     justifyContent: 'center', 
-    backgroundColor: '#fff', 
-    height: responsiveHeight(8), 
-    width: responsiveWidth(80), 
+    backgroundColor: 'red', 
+    height: responsiveHeight(6), 
+    width: responsiveWidth(90), 
     borderRadius: 30, 
     // top: responsiveHeight(2) 
   },
   logOutText:{ 
-    color: 'blue', 
+    color: 'white', 
     fontSize: 20, 
     fontWeight: '400', 
   },userLoginInfoText1:{ color: '#8b54ff', fontSize: 25, fontWeight: 'bold' },

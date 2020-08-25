@@ -151,7 +151,7 @@ class ScheduleMeeting extends Component {
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 customStyles={{
-                  dateInput:{borderWidth: 1,borderColor:'#5b19ea',height: 50,color: '#8b54ff',}, 
+                  dateInput:{borderWidth: 1,borderColor:'#5b19ea',height: 50,color: '#5b19ea',}, 
                 }}
                 onDateChange={(date) => { this.setState({ date: date }) }}
               />
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   searchSection: {
-    height: 50,
+    
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   
   },
   searchSections: {
-    height: 50,
+    marginTop: 15,
     width: '100%',
     flexDirection: 'row',
    
@@ -215,14 +215,15 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexDirection:'column'
   },
   contentContainer: {
     height: '80%',
     width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     padding: 20
   },
   scrollView: {
@@ -230,7 +231,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   imageContainer: {
     height: 150,
@@ -248,7 +249,7 @@ const styles = StyleSheet.create({
   datePicker: {
     height: 50,
     width: '95%',
-   
+   color:'#5b19ea'
   },
   dateIcon: {
     position: 'absolute',

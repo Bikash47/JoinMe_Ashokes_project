@@ -33,13 +33,19 @@ class SplashComponent extends Component {
         return (
             <View style={styles.container}>
                 <StatusBar translucent backgroundColor="transparent" />
-
+                <Text style={styles.headingText}>truuTalk</Text>
+           
                 <Image source={require('../assets/logo.png')}
                         style={{
                             width: "60%",
-                            height: "20%",
-                            position:'absolute'
+                            height: 200,
+                            position:'absolute',
+                            marginTop:60
                         }} resizeMode='cover' />
+                         <Text style={styles.headingSubText}>Keep the conversation going..........</Text>
+
+
+
             </View>
         );
     }
@@ -52,11 +58,22 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-around',
+        flexDirection:'column'
+        
     },
     imgBackground: {
         width: '100%',
         height: '100%',
         flex: 1
     },
+    headingText: {
+        color: '#8b54ff',
+        fontSize: 25,
+        fontWeight: 'bold'
+      },
+      headingSubText: {
+        color: '#8b54ff',
+        fontSize: 17,
+      },
 });
