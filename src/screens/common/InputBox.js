@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { responsiveWidth } from "react-native-responsive-dimensions";
 import { Icon } from 'react-native-elements';
+
 export default class InputBox extends React.Component {
     render() {
         const { icon, onChangeText, name, fontType, keyboardType, secureTextEntry } = this.props;
@@ -10,7 +11,7 @@ export default class InputBox extends React.Component {
                 <Icon style={styles.searchIcon} name={icon} type={fontType ? fontType : 'font-awesome'} size={25} color="#595959" />
                 <TextInput
                     style={styles.input}
-                    placeholder={name}
+                    label={name}
                     onChangeText={(text) => onChangeText(text)}
                     underlineColorAndroid="transparent"
                     keyboardType={keyboardType ? keyboardType : ''}
@@ -29,8 +30,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#f5fafe',
-        borderColor: '#595959',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        borderColor: 'rgba(0,0,0,0.5)',
         borderRadius: 5,
         overflow: 'hidden'
     },
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         height: '100%',
         textAlign: 'left',
         fontSize: 20,
-        backgroundColor: '#f5fafe',
+        backgroundColor: 'rgba(0,0,0,0.5)',
         color: '#959595'
     },
 });

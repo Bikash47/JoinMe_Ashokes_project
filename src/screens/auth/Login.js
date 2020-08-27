@@ -19,7 +19,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {connect} from 'react-redux';
 import {fetchUserData} from '@action';
 import auth from '@react-native-firebase/auth';
-import { TextInput } from 'react-native-paper'
+import { TextInput } from 'react-native-paper';
 
 class Login extends Component {
   constructor(props) {
@@ -73,59 +73,42 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.background}>
+            <ImageBackground
+  source={require("../../assets/bg.png")}
+  style={{width: '100%', height: '100%'}}
+  resizeMode='cover'
+> 
         <StatusBar translucent={true} backgroundColor={'transparent'} />
+   
         <Header {...this.props} />
-
+ 
         <View style={styles.container}>
-          <View style={styles.imageView}>
+          {/* <View style={styles.imageView}>
             <Image
               style={styles.image}
               resizeMode="contain"
               source={require('@assets/forget-pass.png')}></Image>
-          </View>
-          <Text style={styles.text}>Login</Text>
+          </View> */}
+          <Text style={styles.text}>SignIn to get started</Text>
 
           <View style={styles.inputMainView}>
-            <TextInput
-              mode="outlined"
-              onChangeText={(text) => {
-                this.setState({userID: text});
-              }}
-              label={'PhoneNumber/Email Id'}
-              style={{  height: 50, width: "95%",  }}
-             
-              keyboardType={'default'}
-              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
-
-            />
-
-            <TextInput
-              mode="outlined"
-              onChangeText={(text) => {
-                this.setState({password: text});
-              }}
-              label={'Password'}
-              style={{  height: 50, width: "95%", }}
-             
-              keyboardType={'default'}
-              theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
-
-            />
+          <InputBox onChangeText={(text) => { this.setState({ userID: text }) }} icon={'user'} name={'PhoneNumber/Email Id'} />
+            <InputBox onChangeText={(text) => { this.setState({ password: text }) }} icon={'lock'} name={'Password'} />
           </View>
 
           <TouchableOpacity
             style={[
               styles.button,
               this.state.userID == '' || this.state.password == ''
-                ? {backgroundColor: '#ccc'}
-                : {backgroundColor: '#8b54ff'},
+                ? {backgroundColor: 'rgba(0,0,0,0.5)'}
+                : {backgroundColor: '#038ac9'},
             ]}
             onPress={() => this.login()}
             disabled={this.state.userID == '' || this.state.password == ''}>
             <Text style={styles.textlog}>Login</Text>
           </TouchableOpacity>
           <View style={styles.lowerview}>
-            <Text style={{color: 'black', fontSize: 15}}>
+            <Text style={{color: 'white', fontSize: 15}}>
               Don’t have an account?
             </Text>
             <TouchableOpacity
@@ -134,7 +117,7 @@ class Login extends Component {
               <Text style={styles.register}> click here.</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.lowerviews}>
+          {/* <View style={styles.lowerviews}>
             <Text style={{color: 'black', fontSize: 10}}>
               or continue with social media
             </Text>
@@ -149,8 +132,10 @@ class Login extends Component {
               resizeMode="contain"
               source={require('@assets/facebook.png')}></Image>
           </View>
+        */}
         </View>
         {this.state.loading && <Loader />}
+        </ImageBackground>
       </View>
     );
   }
@@ -169,7 +154,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   register: {
-    color: '#5104e0',
+    color: '#038ac9',
     fontSize: 15,
     fontWeight: 'bold',
   },
@@ -181,9 +166,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    color: '#8b54ff',
-    fontSize: 35,
-    fontWeight: 'bold',
+    color: '#fff',
+    fontSize: 25,
+   fontWeight: 'bold',
   },
   texts: {
     color: '#000',

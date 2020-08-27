@@ -4,7 +4,9 @@ import { Icon, } from 'react-native-elements';
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from "react-native-responsive-dimensions";
 import { connect } from "react-redux";
 import AsyncStorage from '@react-native-community/async-storage';
-import { resetData } from '@action'
+import { resetData } from '@action';
+import LinearGradient from 'react-native-linear-gradient';
+
 class Profile extends Component {
 
   validateINfo(data) {
@@ -26,6 +28,12 @@ class Profile extends Component {
 
     return (
       <View  style={styles.container}>
+        <LinearGradient
+          start={{x: 0.0, y: 0.25}}
+          end={{x: 0.5, y: 1.0}}
+          locations={[0, 0.5, 0.6]}
+          colors={['#8960c7','#7964d1','#656adf']}
+          style={styles.imgBackground}>
         <View style={styles.userInfoContainer}>
           <View style={styles.imageContainer}>
             <Image
@@ -50,7 +58,7 @@ class Profile extends Component {
           <Text style={styles.accountInfoHead}>Account Info</Text>
           <View style={styles.detailsContainer}>
             <View style={styles.searchSection}>
-              <Icon name="user" type='font-awesome' size={20} color="#8b54ff" />
+              <Icon name="user" type='font-awesome' size={20} color="white" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Full Name</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.userName)}</Text>
@@ -59,7 +67,7 @@ class Profile extends Component {
                 size={20} color="#8b54ff" /> */}
             </View>
             <View style={styles.searchSection}>
-              <Icon name="mobile" type='font-awesome'  size={20} color="#8b54ff" />
+              <Icon name="mobile" type='font-awesome'  size={20} color="white" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Phone</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.phone)}</Text>
@@ -69,7 +77,7 @@ class Profile extends Component {
 
             <View style={styles.searchSection}>
               <Icon name="envelope-open" type='font-awesome'
-                size={15} color="#8b54ff" />
+                size={15} color="white" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Email Address</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.email)}</Text>
@@ -79,7 +87,7 @@ class Profile extends Component {
 
             <View style={styles.searchSection}>
               <Icon name="address" type='entypo'
-                size={20} color="#8b54ff" />
+                size={20} color="white" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>City</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.city)}</Text>
@@ -89,7 +97,7 @@ class Profile extends Component {
 
             <View style={styles.searchSection}>
               <Icon name="location-pin" type='entypo'
-                size={20} color="#8b54ff" />
+                size={20} color="white" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>State</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.userState)}</Text>
@@ -99,7 +107,7 @@ class Profile extends Component {
 
             <View style={styles.searchSection}>
               <Icon name="address" type='entypo'
-                size={20} color="#8b54ff" />
+                size={20} color="white" />
               <View style={styles.textParentView}>
                 <Text style={styles.infoText}>Zip Code</Text>
                 <Text style={styles.infoText}>{this.validateINfo(getUserProfile.pinCode)}</Text>
@@ -113,6 +121,7 @@ class Profile extends Component {
             </TouchableOpacity>
           </View>
         </View>
+        </LinearGradient>
       </View>
     );
   }
@@ -176,7 +185,8 @@ const styles = StyleSheet.create({
     height: responsiveHeight(6),
     width: responsiveWidth(90),
     borderRadius: 30,
-    top: responsiveHeight(2)
+    top: responsiveHeight(2),
+    left:15
   },
   navText: {
     color: '#fff',
@@ -193,7 +203,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   accountInfoHead: {
-    color: '#8b54ff',
+    color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
     width: '100%'
@@ -204,7 +214,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infoText:{ 
-    color: '#8b54ff', 
+    color: 'white', 
     fontSize: 15, 
     fontWeight: '400' 
   },
@@ -222,7 +232,13 @@ const styles = StyleSheet.create({
     color: 'white', 
     fontSize: 20, 
     fontWeight: '400', 
-  },userLoginInfoText1:{ color: '#8b54ff', fontSize: 25, fontWeight: 'bold' },
-  userLoginInfoText2:{ color: '#8b54ff', fontSize: 17, },
-  textParentView:{ width: '75%' }
+  },userLoginInfoText1:{ color: 'white', fontSize: 25, fontWeight: 'bold' },
+  userLoginInfoText2:{ color: 'white', fontSize: 17, },
+  textParentView:{ width: '75%' },
+  imgBackground: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    
+  },
 })

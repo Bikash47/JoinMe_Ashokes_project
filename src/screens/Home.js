@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import firestore from '@react-native-firebase/firestore';
 import { Join, Create, Loader, customAlert } from '@common';
 import { fetchScheduleMeeting, deleteScheduleMeeting } from '@action';
+import LinearGradient from 'react-native-linear-gradient';
 
 class Home extends Component {
   constructor(props) {
@@ -134,7 +135,7 @@ class Home extends Component {
           </View>
           <View style={styles.buttonView}>
             <Button
-              buttonStyle={[styles.button, { backgroundColor: '#39d10b' }]}
+              buttonStyle={[styles.button, { backgroundColor: '#038ac9' }]}
               title="Join"
               onPress={() => this.joinMeeting(item.meetingID)}
               disabled={this.state.email == '' || this.state.pass == ''}
@@ -155,6 +156,12 @@ class Home extends Component {
     const { getUserProfile, userImagePath, todayMeeting, nextMeeting } = this.props;
     return (
       <SafeAreaView style={styles.container}>
+          <LinearGradient
+          start={{x: 0.0, y: 0.25}}
+          end={{x: 0.5, y: 1.0}}
+          locations={[0, 0.5, 0.6]}
+          colors={['#8960c7','#7964d1','#656adf']}
+          style={styles.imgBackground}>
         <ImageBackground  style={styles.background}>
           <StatusBar translucent={true} backgroundColor={'transparent'} />
 
@@ -185,7 +192,7 @@ class Home extends Component {
                 style={styles.profileClick}
               >
                 <Icon name="user" type='font-awesome'
-                  size={32} color='#5b19ea' />
+                  size={32} color='#0faee8' />
               </TouchableHighlight>
             </View>
           </View> : <View style={styles.logoView}>
@@ -208,7 +215,7 @@ class Home extends Component {
                     source={require('@assets/meeting.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Arrange Meeting</Text>
+                <Text style={styles.optionsText}>Scheule</Text>
               </View>
               <View style={styles.centerView}>
                 <TouchableOpacity onPress={() => {
@@ -218,7 +225,7 @@ class Home extends Component {
                     style={styles.optionImage}
 
                     resizeMode='contain'
-                    source={require('@assets/team.png')} >
+                    source={require('@assets/video-call.png')} >
                   </Image>
                 </TouchableOpacity>
                 <Text style={styles.optionsText}>Join Meeting</Text>
@@ -231,7 +238,7 @@ class Home extends Component {
                     style={styles.optionImage}
 
                     resizeMode='contain'
-                    source={require('@assets/video-call.png')} >
+                    source={require('@assets/team.png')} >
                   </Image>
                 </TouchableOpacity>
                 <Text style={styles.optionsText}>Create Meeting</Text>
@@ -247,7 +254,7 @@ class Home extends Component {
                     source={require('@assets/conference.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Meeting Archives</Text>
+                <Text style={styles.optionsText}>History</Text>
               </View>
             </View>
             <View style={styles.row}>
@@ -262,7 +269,7 @@ class Home extends Component {
                     source={require('@assets/add.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Signup</Text>
+                <Text style={styles.optionsText}>Register</Text>
               </View>
               <View style={styles.centerView}>
                 <TouchableOpacity onPress={() => {
@@ -275,7 +282,7 @@ class Home extends Component {
                     source={require('@assets/user1.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Sign On</Text>
+                <Text style={styles.optionsText}>Login</Text>
               </View>
               <View style={styles.centerView}>
                 <TouchableOpacity onPress={() => {
@@ -301,7 +308,7 @@ class Home extends Component {
                     source={require('@assets/calendar.png')} >
                   </Image>
                 </TouchableOpacity>
-                <Text style={styles.optionsText}>Planner</Text>
+                <Text style={styles.optionsText}>Calender</Text>
               </View>
             </View>
             <View style={styles.meetingView}>
@@ -360,6 +367,7 @@ class Home extends Component {
           />
           {this.state.loading && <Loader />}
         </ImageBackground>
+        </LinearGradient>
       </SafeAreaView>
 
     );
@@ -391,27 +399,27 @@ const styles = StyleSheet.create({
     left: 20
   },
   meetingDetails: {
-    color: '#fff',
+    color: '#000',
     fontSize: 15,
     textAlign: 'left',
     width: '95%'
 
   },
   meetingDetails2: {
-    color: '#fff',
+    color: '#000',
     fontSize: 15,
     textAlign: 'left',
     width: '95%'
   },
   meetingDetailView: {
-    backgroundColor: '#8b54ff',
+    backgroundColor: '#fff',
     width: '70%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center'
   },
   meetingListContainer: {
-    backgroundColor: '#8b54ff',
+    backgroundColor: '#fff',
     height: 150,
     width: 300,
     borderRadius: 6,
@@ -462,7 +470,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 1
   },
   title1: {
-    color: '#5b19ea',
+    color: '#fff',
     fontSize: 19,
     fontWeight: 'bold'
   },
@@ -482,7 +490,7 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
   title2: {
-    color: '#5b19ea',
+    color: '#fff',
     fontSize: 19,
     fontWeight: 'bold'
   },
@@ -493,15 +501,15 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   profileClick: {
-    height: 30,
-    width: 30,
+    height: 40,
+    width: 40,
     backgroundColor: 'white',
-    borderRadius: 15,
+    borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center'
   },
   city: {
-    color: '#5b19ea',
+    color: '#05b4ea',
     fontSize: 17,
     fontWeight: 'bold'
   },
@@ -531,7 +539,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   name: {
-    color: '#5b19ea',
+    color: '#05b4ea',
     fontSize: 17,
     fontWeight: 'bold'
   },
@@ -539,7 +547,8 @@ const styles = StyleSheet.create({
     height: '90%',
     width: '90%',
     overflow: 'hidden',
-    borderRadius: 55
+    borderRadius: 55,
+    tintColor:'#05b4ea'
   },
   topView: {
     height: '15%',
@@ -556,7 +565,7 @@ const styles = StyleSheet.create({
   options: {
     height: responsiveHeight(10),
     width: responsiveHeight(10),
-    backgroundColor: 'white',
+    backgroundColor: '#05b4ea',
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -565,7 +574,7 @@ const styles = StyleSheet.create({
     
   },
   optionsText: {
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
     fontSize: 15,
     width: responsiveHeight(11)
@@ -574,18 +583,24 @@ const styles = StyleSheet.create({
   button: {
     width: 70,
     height: 35,
-    backgroundColor: '#e87d2e',
+    backgroundColor: '#f86335',
     borderRadius: 5,
   },
-  centerView: { alignItems: 'center', },
+  centerView: { alignItems: 'center',  },
   buttonView: {
-    backgroundColor: '#8b54ff',
+    backgroundColor: '#fff',
     width: '30%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'space-around'
   },
-  meetingText: { color: '#fff', fontSize: 15, textAlign: 'left', width: '100%' },
-  profileOptionImage: { height: 30, width: 30,tintColor:'#5b19ea' },
-  logoImageView: { height: '100%', width: 120,tintColor:'#5b19ea' }
+  imgBackground: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    
+  },
+  meetingText: { color: '#000', fontSize: 15, textAlign: 'left', width: '100%' },
+  profileOptionImage: { height: 30, width: 30,tintColor:'#0faee8' },
+  logoImageView: { height: '100%', width: 120, }
 })

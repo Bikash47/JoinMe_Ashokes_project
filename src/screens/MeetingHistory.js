@@ -56,6 +56,7 @@ class MeetingHistory extends Component {
 
     return (
       <View  style={styles.background}>
+        
         <StatusBar translucent={true} backgroundColor={'transparent'} />
 
         <Header {...this.props} />
