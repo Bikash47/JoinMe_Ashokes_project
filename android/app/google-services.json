@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "686326433573",
-    "firebase_url": "https://convo-f5240.firebaseio.com",
-    "project_id": "convo-f5240",
-    "storage_bucket": "convo-f5240.appspot.com"
+    "project_number": "1061746535173",
+    "firebase_url": "https://teleference-8cc8e.firebaseio.com",
+    "project_id": "teleference-8cc8e",
+    "storage_bucket": "teleference-8cc8e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:686326433573:android:15442f5e906109dde9fccc",
+        "mobilesdk_app_id": "1:1061746535173:android:b0917f236b688321ece56c",
         "android_client_info": {
-          "package_name": "com.convo"
+          "package_name": "com.teleference"
         }
       },
       "oauth_client": [
         {
-          "client_id": "686326433573-08n8vmglcbap9mbgh6rud2q74hcinteq.apps.googleusercontent.com",
+          "client_id": "1061746535173-adpqnb1qtnljkgjjmmosv1q2uc1qi9tf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDJUJuYHlkCeH7pmno4M6aKjfxKdRVt3qE"
+          "current_key": "AIzaSyBGwvj64wMGl8XnqWSpYgNO__9Cp4RxjrM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "686326433573-08n8vmglcbap9mbgh6rud2q74hcinteq.apps.googleusercontent.com",
+              "client_id": "1061746535173-adpqnb1qtnljkgjjmmosv1q2uc1qi9tf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

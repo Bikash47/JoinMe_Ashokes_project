@@ -2,11 +2,19 @@ import React, { Component } from "react";
 import { StatusBar, StyleSheet, ImageBackground, TouchableOpacity, View, Text, Image, BackHandler } from 'react-native';
 import { responsiveHeight, } from "react-native-responsive-dimensions";
 import { Header } from '@common';
+import LinearGradient from 'react-native-linear-gradient';
+
 class SocialLogin extends Component {
 
   render() {
     return (
       <View  style={styles.container}>
+         <LinearGradient
+          start={{x: 0.0, y: 0.25}}
+          end={{x: 0.5, y: 1.0}}
+          locations={[0, 0.5, 0.6]}
+          colors={['#8960c7','#7964d1','#656adf']}
+          style={styles.imgBackground}>
         <StatusBar translucent={true} backgroundColor={'transparent'} />
         <Header {...this.props} />
         <View style={styles.contentContainer}>
@@ -71,6 +79,7 @@ class SocialLogin extends Component {
             </View>
           </View>
         </View>
+        </LinearGradient>
       </View>
     );
   }
@@ -85,7 +94,7 @@ const styles = StyleSheet.create({
   options: {
     height: responsiveHeight(10),
     width: responsiveHeight(10),
-    backgroundColor: '#8b54ff',
+    backgroundColor: '#05b4ea',
     borderRadius: responsiveHeight(5),
     alignItems: 'center',
     justifyContent: 'center'
@@ -115,12 +124,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   headingText: {
-    color: '#8b54ff',
+    color: '#fff',
     fontSize: 25,
     fontWeight: 'bold'
   },
   headingSubText: {
-    color: '#8b54ff',
+    color: '#fff',
     fontSize: 17,
   },
   platformContainer: {
@@ -138,5 +147,11 @@ const styles = StyleSheet.create({
     width: responsiveHeight(42),
     justifyContent: 'space-between',
     alignItems: 'center'
-  }
+  },
+  imgBackground: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    paddingTop:25
+  },
 })

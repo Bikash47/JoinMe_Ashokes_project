@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.convo"
+        applicationId "com.teleference"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

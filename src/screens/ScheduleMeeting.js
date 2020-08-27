@@ -8,6 +8,7 @@ import { Loader, Header } from "@common";
 import AsyncStorage from '@react-native-community/async-storage';
 import DatePicker from 'react-native-datepicker'
 import { TextInput } from 'react-native-paper'
+import LinearGradient from 'react-native-linear-gradient';
 
 class ScheduleMeeting extends Component {
   constructor(props) {
@@ -69,18 +70,24 @@ class ScheduleMeeting extends Component {
   render() {
     return (
       <View  style={styles.container}>
-                <StatusBar translucent={true} backgroundColor={'transparent'} />
-
+                
+                <LinearGradient
+          start={{x: 0.0, y: 0.25}}
+          end={{x: 0.5, y: 1.0}}
+          locations={[0, 0.5, 0.6]}
+          colors={['#8960c7','#7964d1','#656adf']}
+          style={styles.imgBackground}>
+            <StatusBar translucent={true} backgroundColor={'transparent'} />
         <Header {...this.props} />
         <View style={styles.contentContainer}>
           <ScrollView contentContainerStyle={styles.scrollView}>
-            <View style={styles.imageContainer}>
-              <Image
+            {/* <View style={styles.imageContainer}>
+               <Image
                 style={styles.image}
                 resizeMode='contain'
                 source={require('@assets/Schedule.png')} >
-              </Image>
-            </View>
+              </Image> 
+            </View> */}
             <Text style={styles.headingText}>Schedule Your Meeting</Text>
             <View style={styles.searchSection}>
               <TextInput
@@ -89,7 +96,7 @@ class ScheduleMeeting extends Component {
                 label="Meeting ID"
                 onChangeText={(text) => this.setState({ meetingID: text })}
                 underlineColorAndroid="transparent"
-                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+                theme={{ colors: { placeholder: '#05b4ea', text: '#05b4ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
 
               />
             </View>
@@ -100,7 +107,7 @@ class ScheduleMeeting extends Component {
                 label="Meeting Subject"
                 onChangeText={(text) => this.setState({ subject: text })}
                 underlineColorAndroid="transparent"
-                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+                theme={{ colors: { placeholder: '#05b4ea', text: '#05b4ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
 
               />
             </View>
@@ -111,7 +118,7 @@ class ScheduleMeeting extends Component {
                 label="Meeting Participents"
                 onChangeText={(text) => this.setState({ participents: text })}
                 underlineColorAndroid="transparent"
-                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+                theme={{ colors: { placeholder: '#05b4ea', text: '#05b4ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
 
               />
             </View>
@@ -122,7 +129,7 @@ class ScheduleMeeting extends Component {
                 label="Time"
                 onChangeText={(text) => this.setState({ time: text })}
                 underlineColorAndroid="transparent"
-                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+                theme={{ colors: { placeholder: '#05b4ea', text: '#05b4ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
 
               />
               
@@ -134,7 +141,7 @@ class ScheduleMeeting extends Component {
                 label="Duration"
                 onChangeText={(text) => this.setState({ duration: text })}
                 underlineColorAndroid="transparent"
-                theme={{ colors: { placeholder: '#5b19ea', text: '#5b19ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
+                theme={{ colors: { placeholder: '#05b4ea', text: '#05b4ea', primary: "#ffa50c",underlineColor:'transparent',background : 'white'}}}
 
               />
             
@@ -151,7 +158,7 @@ class ScheduleMeeting extends Component {
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 customStyles={{
-                  dateInput:{borderWidth: 1,borderColor:'#5b19ea',height: 50,color: '#5b19ea',}, 
+                  dateInput:{borderWidth: 0,borderColor:'#05b4ea',height: 50,color: '#05b4ea',}, 
                 }}
                 onDateChange={(date) => { this.setState({ date: date }) }}
               />
@@ -167,6 +174,7 @@ class ScheduleMeeting extends Component {
           />
         </View>
         {this.state.loading && <Loader />}
+        </LinearGradient>
       </View>
     );
   }
@@ -198,7 +206,8 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: '100%',
     flexDirection: 'row',
-   
+   backgroundColor:'white',
+   borderWidth: 1,borderColor:'#05b4ea'
   },
   searchIcon: {
     padding: 10,
@@ -216,7 +225,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    flexDirection:'column'
+    flexDirection:'column',
+   
   },
   contentContainer: {
     height: '80%',
@@ -241,7 +251,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   headingText: {
-    color: '#8b54ff',
+    color: '#fff',
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -256,5 +266,11 @@ const styles = StyleSheet.create({
     left: 0,
     top: 4,
     marginLeft: 0
-  }
+  },
+  imgBackground: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    paddingTop:25
+  },
 })

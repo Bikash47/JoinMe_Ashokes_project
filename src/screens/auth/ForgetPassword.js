@@ -15,10 +15,11 @@ import {
   TextInput,
   Text,
   Image,
+  StatusBar
 } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import auth from '@react-native-firebase/auth';
-import { ToastAlert, Header } from "@common";
+import { ToastAlert, Header,InputBox } from "@common";
 
 class Forget extends Component {
   constructor(props) {
@@ -39,28 +40,35 @@ class Forget extends Component {
   render() {
     return (
       <View style={styles.background}>
+          <ImageBackground
+  source={require("../../assets/bg.png")}
+  style={{width: '100%', height: '100%'}}
+  resizeMode='cover'
+> 
+<StatusBar translucent={false} backgroundColor={'black'} />
+
         <Header {...this.props} />
         <View style={styles.container}>
           <View style={styles.imageView}>
-            <Image
+            {/* <Image
               style={styles.image}
               resizeMode='contain'
               source={require('@assets/far.png')} >
-            </Image>
+            </Image> */}
           </View>
           <Text style={styles.title}>
             Forget Password
             </Text>
           <View style={styles.searchSection}>
-           
-            <TextInput
+          <InputBox  onChangeText={(text) => { this.setState({ email: text }) }} icon={'user'} name={'PhoneNumber/Email Id'} />
+            {/* <TextInput
               style={styles.input}
               placeholder="PhoneNumber/Email Id"
               onChangeText={(text) => { this.setState({ email: text }) }}
               underlineColorAndroid="transparent"
-            />
-            <View style={styles.searchIcon} name="microphone" type='font-awesome'
-              size={30} color="#595959" />
+            /> */}
+            {/* <View style={styles.searchIcon} name="microphone" type='font-awesome'
+              size={30} color="#595959" /> */}
           </View>
         
            <TouchableOpacity
@@ -77,6 +85,7 @@ class Forget extends Component {
             </TouchableOpacity>
           </View>
         </View>
+        </ImageBackground>
       </View>
     );
   }
@@ -85,7 +94,7 @@ export default Forget
 
 const styles = StyleSheet.create({
   title: {
-    color: '#8b54ff',
+    color: '#fff',
     fontSize: 25,
     fontWeight: 'bold'
   },
@@ -119,7 +128,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   container: {
-    height: '85%',
+    height: '80%',
     width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
@@ -127,20 +136,21 @@ const styles = StyleSheet.create({
     padding: 20
   },
   text: {
-    color: '#5104e0',
+    color: '#05b4ea',
     fontSize: 20,
     fontWeight: 'bold'
   },
   searchSection: {
     height: 50,
-    width: '93%',
+    width: '90%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#ccc',
-    borderColor: '#595959',
+    // backgroundColor: '#ccc',
+    // borderColor: '#595959',
     borderRadius: 10,
-paddingLeft:10
+paddingLeft:10,
+marginRight:20
   },
   searchIcon: {
     padding: 10,
@@ -148,7 +158,7 @@ paddingLeft:10
   button: {
     width: '90%',
     height: 40,
-    backgroundColor: '#8b54ff',
+    backgroundColor: '#05b4ea',
     borderRadius: 5,
     alignItems: 'center',
     marginTop: 15,
@@ -156,7 +166,7 @@ paddingLeft:10
 
   },
   input: {
-    width: '90%',
+    width: '70%',
     margin: 0,
     padding: 0,
     height: '100%',
@@ -165,5 +175,5 @@ paddingLeft:10
     backgroundColor: '#ccc',
     color: '#959595',
   },
-  lowerViewText: { color: 'black', fontSize: 15 }
+  lowerViewText: { color: 'white', fontSize: 15 }
 })

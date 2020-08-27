@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   container: {
-    height: '75%',
+    height: '86%',
     width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
