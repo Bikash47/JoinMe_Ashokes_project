@@ -1,9 +1,104 @@
 import React, { Component } from "react";
-import { StatusBar, StyleSheet, ImageBackground, TouchableOpacity, View, Text, Image, BackHandler } from 'react-native';
+import { StatusBar, StyleSheet, ImageBackground, TouchableOpacity, View, Text, Image, Alert } from 'react-native';
 import { responsiveHeight, } from "react-native-responsive-dimensions";
-import { Header } from '@common';
-class SocialLogin extends Component {
+import {InputBox, Loader, ToastAlert, Header} from '@common';
+import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
+import auth from '@react-native-firebase/auth';
+import {fetchUserData} from '@action';
+import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-community/async-storage';
+import {connect} from 'react-redux';
 
+class SocialLogin extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pushData: [],
+      loggedIn: false,
+      userInfo:''
+    }
+    auth().signInAnonymously();
+  }
+
+  componentDidMount() {
+    GoogleSignin.configure();
+  }
+
+  signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      this.setState({ userInfo });
+      console.log("LoginSucess: " + JSON.stringify(userInfo));
+      let params = {
+        login_by: "google",
+        name: userInfo.user.name,
+        email: userInfo.user.email,
+        phone: "",
+        social_id: userInfo.user.id,
+        photo:userInfo.user.photo
+      }
+      this.register(userInfo)
+           // Alert.alert("Google Login Success", "Login ID : " + userInfo.user.email)
+
+    } catch (error) {
+      console.log("Loginfailerror: " + error);
+      alert("Something went wrong, Please try again later.")
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (f.e. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  };
+  async register(params) {
+    this.setState({loading: true});
+    try {
+      const registerData = await auth().createUserWithEmailAndPassword(
+        params.user.email,
+        "google"
+      );
+      this.onRegister(params);
+    } catch (error) {
+      if (error.code === 'auth/email-already-in-use') {
+        ToastAlert.show(
+          'That email address is already in use!',
+          ToastAlert.LONG,
+        );
+      } else if (error.code === 'auth/invalid-email') {
+        ToastAlert.show('That email address is invalid!', ToastAlert.LONG);
+      }
+    }
+  }
+  async onRegister(registerdatar) {
+
+    const data = {
+      userName: registerdatar.user.name,
+      password: "google",
+      phone: "",
+      email: registerdatar.user.email,
+      social_id:registerdatar.user.id,
+      imagePath: registerdatar.user.photo,
+      createdAt: firestore.FieldValue.serverTimestamp(),
+    };
+
+    try {
+      const dataRegister = await firestore().collection('Users').add(data);
+      const uid = dataRegister._documentPath._parts[1];
+      this.setState({loading: false});
+      this.props.fetchUserData(uid, () => {});
+      ToastAlert.show('Registration Success', ToastAlert.LONG);
+      AsyncStorage.setItem('@userID', uid);
+      // if (userImage != '') {
+      //   this.uploadImage(uid);
+      // }
+      this.props.navigation.navigate('Home');
+    } catch (error) {}
+  }
   render() {
     return (
       <View  style={styles.container}>
@@ -24,13 +119,21 @@ class SocialLogin extends Component {
 
           <View style={styles.platformContainer}>
             <View style={styles.platformContentContainer}>
-              <TouchableOpacity style={styles.options}>
+              <TouchableOpacity style={styles.options}
+                            onPress={this.signIn}
+                            >
                 <Image
                   style={styles.platformImage}
                   resizeMode='cover'
                   source={require('@assets/gmail.png')} >
                 </Image>
               </TouchableOpacity>
+              <GoogleSigninButton
+              style={{ width: "0%", height: 0 }}
+              size={GoogleSigninButton.Size.Wide}
+              color={GoogleSigninButton.Color.Dark}
+              onPress={this.signIn}
+              disabled={this.state.isSigninInProgress} />
               <TouchableOpacity style={styles.options}>
                 <Image
                   style={styles.platformImage}
@@ -71,11 +174,12 @@ class SocialLogin extends Component {
             </View>
           </View>
         </View>
+        {this.state.loading && <Loader />}
       </View>
     );
   }
 }
-export default SocialLogin
+export default connect(null, {fetchUserData})(SocialLogin);
 
 const styles = StyleSheet.create({
   image: {
