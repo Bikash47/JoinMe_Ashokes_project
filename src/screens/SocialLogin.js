@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StatusBar, StyleSheet, ImageBackground, TouchableOpacity, View, Text, Image, Alert } from 'react-native';
 import { responsiveHeight, } from "react-native-responsive-dimensions";
 import {InputBox, Loader, ToastAlert, Header} from '@common';
-import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
+// import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
 import auth from '@react-native-firebase/auth';
 import {fetchUserData} from '@action';
 import firestore from '@react-native-firebase/firestore';
@@ -21,40 +21,40 @@ class SocialLogin extends Component {
   }
 
   componentDidMount() {
-    GoogleSignin.configure();
+    // GoogleSignin.configure();
   }
 
-  signIn = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      this.setState({ userInfo });
-      console.log("LoginSucess: " + JSON.stringify(userInfo));
-      let params = {
-        login_by: "google",
-        name: userInfo.user.name,
-        email: userInfo.user.email,
-        phone: "",
-        social_id: userInfo.user.id,
-        photo:userInfo.user.photo
-      }
-      this.register(userInfo)
-           // Alert.alert("Google Login Success", "Login ID : " + userInfo.user.email)
+  // signIn = async () => {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const userInfo = await GoogleSignin.signIn();
+  //     this.setState({ userInfo });
+  //     console.log("LoginSucess: " + JSON.stringify(userInfo));
+  //     let params = {
+  //       login_by: "google",
+  //       name: userInfo.user.name,
+  //       email: userInfo.user.email,
+  //       phone: "",
+  //       social_id: userInfo.user.id,
+  //       photo:userInfo.user.photo
+  //     }
+  //     this.register(userInfo)
+  //          // Alert.alert("Google Login Success", "Login ID : " + userInfo.user.email)
 
-    } catch (error) {
-      console.log("Loginfailerror: " + error);
-      alert("Something went wrong, Please try again later.")
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (f.e. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
-  };
+  //   } catch (error) {
+  //     console.log("Loginfailerror: " + error);
+  //     alert("Something went wrong, Please try again later.")
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       // user cancelled the login flow
+  //     } else if (error.code === statusCodes.IN_PROGRESS) {
+  //       // operation (f.e. sign in) is in progress already
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       // play services not available or outdated
+  //     } else {
+  //       // some other error happened
+  //     }
+  //   }
+  // };
   async register(params) {
     this.setState({loading: true});
     try {
@@ -128,12 +128,12 @@ class SocialLogin extends Component {
                   source={require('@assets/gmail.png')} >
                 </Image>
               </TouchableOpacity>
-              <GoogleSigninButton
+              {/* <GoogleSigninButton
               style={{ width: "0%", height: 0 }}
               size={GoogleSigninButton.Size.Wide}
               color={GoogleSigninButton.Color.Dark}
               onPress={this.signIn}
-              disabled={this.state.isSigninInProgress} />
+              disabled={this.state.isSigninInProgress} /> */}
               <TouchableOpacity style={styles.options}>
                 <Image
                   style={styles.platformImage}
