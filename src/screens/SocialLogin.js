@@ -8,14 +8,20 @@ import {fetchUserData} from '@action';
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-community/async-storage';
 import {connect} from 'react-redux';
-
+import {
+  AccessToken,
+  GraphRequest,
+  GraphRequestManager,
+  LoginManager
+} from "react-native-fbsdk";
 class SocialLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
       pushData: [],
       loggedIn: false,
-      userInfo:''
+      userInfo:'',
+      accessToken: null,
     }
     auth().signInAnonymously();
   }
@@ -55,6 +61,60 @@ class SocialLogin extends Component {
   //     }
   //   }
   // };
+
+  getInfoFromToken = token => {
+    const PROFILE_REQUEST_PARAMS = {
+      fields: {
+        string: "id, name,  first_name, last_name,email, picture.type(large)"
+      }
+    };
+    const profileRequest = new GraphRequest(
+      "/me",
+      { token, parameters: PROFILE_REQUEST_PARAMS },
+      (error, result) => {
+        if (error) {
+          console.log("login info has error: " + error);
+          alert("Something went wrong, Please try again later.")
+        } else {
+          this.setState({ userInfo: result });
+          // Alert.alert("Facebook Login Success", "Login ID : " + result.email)
+          console.log("result:", result);
+          // alert(token)
+          let params = {
+            login_by: "facebook",
+            name: result.name,
+            email: result.email,
+            phone: "",
+            social_id: result.id
+          }
+          register(params)
+          // ApiAccess.post("social/login", params).then(res => {
+          //   alert(JSON.stringify(res))
+          // }).catch(e => console.log(JSON.stringify(token)))
+          // this.fbloginnow(result);
+        }
+      }
+    );
+    new GraphRequestManager().addRequest(profileRequest).start();
+  };
+  async loginWithFacebook() {
+    LoginManager.logInWithPermissions(["public_profile", "email"]).then(
+      login => {
+        if (login.isCancelled) {
+          console.log("Login cancelled");
+        } else {
+          AccessToken.getCurrentAccessToken().then(data => {
+            const accessToken = data.accessToken.toString();
+            this.getInfoFromToken(accessToken);
+          });
+        }
+      },
+      error => {
+        console.log("Login fail with error: " + error);
+      }
+    );
+  }
+
   async register(params) {
     this.setState({loading: true});
     try {
@@ -141,7 +201,10 @@ class SocialLogin extends Component {
                   source={require('@assets/email.png')} >
                 </Image>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.options}>
+              <TouchableOpacity style={styles.options}
+              onPress={() => {
+                this.loginWithFacebook();
+              }}>
                 <Image
                   style={styles.platformImage}
                   resizeMode='cover'
